@@ -1,0 +1,933 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/23/2024 5:05:54 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-T5TEPEA"
+  DTS:CreatorName="DESKTOP-T5TEPEA\senol"
+  DTS:DTSID="{2667FDC6-DB6F-4C6C-A5B2-07D17B8AAEFF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1055"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{5864601D-5E62-4240-AA7F-75A03D149604}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{59AC1838-E2CF-4D0B-86F9-8B4DD8C6C8A8}"
+      DTS:ObjectName="DESKTOP-T5TEPEA\AKDENIZ.BANK">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-T5TEPEA\AKDENIZ;Initial Catalog=BANK;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{59AC1838-E2CF-4D0B-86F9-8B4DD8C6C8A8}DESKTOP-T5TEPEA\AKDENIZ.BANK;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{648BA40B-9675-4C46-AECB-A3A0751AD2BC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\MUSTERI"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="MUSTERI"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[MUSTERI]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\MUSTERI.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[KategoriID]"
+                      codePage="1254"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
+                      length="1"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[KategoriID]"
+                      name="KategoriID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IlkAd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[IlkAd]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IlkAd]"
+                      name="IlkAd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IkinciAd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[IkinciAd]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IkinciAd]"
+                      name="IkinciAd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[Soyad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[Soyad]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[Soyad]"
+                      name="Soyad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[DTarihi]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[DTarihi]"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[DTarihi]"
+                      name="DTarihi"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      dataType="i2"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[TCKimlikNo]"
+                      dataType="i8"
+                      name="TCKimlikNo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="1"
+                      name="KategoriID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[IlkAd]"
+                      dataType="wstr"
+                      length="50"
+                      name="IlkAd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[IkinciAd]"
+                      dataType="wstr"
+                      length="50"
+                      name="IkinciAd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[Soyad]"
+                      dataType="wstr"
+                      length="50"
+                      name="Soyad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[DTarihi]"
+                      dataType="dbTimeStamp"
+                      name="DTarihi" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[Cinsiyet]"
+                      dataType="bool"
+                      name="Cinsiyet" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[MedeniHal]"
+                      dataType="bool"
+                      name="MedeniHal" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].ExternalColumns[YasGrupID]"
+                      dataType="ui1"
+                      name="YasGrupID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      name="MusteriID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[KategoriID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[KategoriID]"
+                      name="KategoriID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[IlkAd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[IlkAd]"
+                      name="IlkAd" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[IkinciAd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[IkinciAd]"
+                      name="IkinciAd" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[Soyad]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[Soyad]"
+                      name="Soyad" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[DTarihi]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[DTarihi]"
+                      name="DTarihi" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\MUSTERI-TAM-AD"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="MUSTERI-TAM-AD"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\MUSTERI-TAM-AD.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-TAM-AD.Inputs[Derived Column Input].Columns[IlkAd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="IlkAd"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IlkAd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-TAM-AD.Inputs[Derived Column Input].Columns[IkinciAd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="IkinciAd"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IkinciAd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-TAM-AD.Inputs[Derived Column Input].Columns[Soyad]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Soyad"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[Soyad]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\MUSTERI-TAM-AD.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\MUSTERI-TAM-AD.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-TAM-AD.Outputs[Derived Column Output].Columns[TamAd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="152"
+                      lineageId="Package\Data Flow Task\MUSTERI-TAM-AD.Outputs[Derived Column Output].Columns[TamAd]"
+                      name="TamAd"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IkinciAd]}) ? #{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IlkAd]} + " " + #{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[Soyad]} : #{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IlkAd]} + " " + #{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IkinciAd]} + " " + #{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[Soyad]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(IkinciAd) ? IlkAd + " " + Soyad : IlkAd + " " + IkinciAd + " " + Soyad</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\MUSTERI-TAM-AD.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\MUSTERI-TAM-AD.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-TAM-AD.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\MUSTERI-TAM-AD.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-TAM-AD.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\MUSTERI-TAM-AD.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\MUSTERI-YAS"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="MUSTERI-YAS"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\MUSTERI-YAS.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-YAS.Inputs[Derived Column Input].Columns[DTarihi]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DTarihi"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[DTarihi]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\MUSTERI-YAS.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\MUSTERI-YAS.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-YAS.Outputs[Derived Column Output].Columns[Yas]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\MUSTERI-YAS.Outputs[Derived Column Output].Columns[Yas]"
+                      name="Yas"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEDIFF]("yyyy",#{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[DTarihi]},(DT_DBTIMESTAMP)("30.11.2024"))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEDIFF("yyyy",DTarihi,(DT_DBTIMESTAMP)("30.11.2024"))</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\MUSTERI-YAS.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\MUSTERI-YAS.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-YAS.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\MUSTERI-YAS.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-YAS.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\MUSTERI-YAS.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[MusteriID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[KategoriID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="KategoriID"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[KategoriID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[IlkAd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="IlkAd"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IlkAd]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[IkinciAd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="IkinciAd"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IkinciAd]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[Soyad]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Soyad"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[Soyad]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[DTarihi]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DTarihi"
+                      lineageId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[DTarihi]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[TamAd]"
+                      cachedDataType="wstr"
+                      cachedLength="152"
+                      cachedName="TamAd"
+                      lineageId="Package\Data Flow Task\MUSTERI-TAM-AD.Outputs[Derived Column Output].Columns[TamAd]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[Yas]"
+                      cachedDataType="i4"
+                      cachedName="Yas"
+                      lineageId="Package\Data Flow Task\MUSTERI-YAS.Outputs[Derived Column Output].Columns[Yas]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[KategoriID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[KategoriID]"
+                      name="KategoriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[KategoriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[IlkAd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[IlkAd]"
+                      name="IlkAd">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IlkAd]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[IkinciAd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[IkinciAd]"
+                      name="IkinciAd">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[IkinciAd]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Soyad]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Soyad]"
+                      name="Soyad">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[Soyad]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[DTarihi]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[DTarihi]"
+                      name="DTarihi">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output].Columns[DTarihi]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[TamAd]"
+                      dataType="wstr"
+                      length="152"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[TamAd]"
+                      name="TamAd">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERI-TAM-AD.Outputs[Derived Column Output].Columns[TamAd]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Yas]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[Yas]"
+                      name="Yas">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERI-YAS.Outputs[Derived Column Output].Columns[Yas]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\MUSTERI-YAS.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\MUSTERI-TAM-AD.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output1]"
+              endId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\MUSTERI-YAS.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\MUSTERI-TAM-AD.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\MUSTERI.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output]"
+              endId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Data Flow Task\MUSTERI"
+          TopLeft="488,19" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Data Flow Task\MUSTERI-TAM-AD"
+          TopLeft="467,111" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="553.25,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Data Flow Task\MUSTERI-YAS"
+          TopLeft="477,207" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="554,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Data Flow Task\Multicast"
+          TopLeft="489,372" />
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Data Flow Task\Sort"
+          TopLeft="505,285" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output1]"
+          TopLeft="554.25,249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="552.5,327">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,10.75,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\MUSTERI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

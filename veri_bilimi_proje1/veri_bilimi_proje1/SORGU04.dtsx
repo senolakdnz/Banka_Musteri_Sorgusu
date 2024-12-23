@@ -1,0 +1,3003 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/23/2024 4:17:51 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-T5TEPEA"
+  DTS:CreatorName="DESKTOP-T5TEPEA\senol"
+  DTS:DTSID="{F786C57B-C134-43EA-AA5A-8B4E25D56DF3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1055"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{9D6BA0D1-1AA3-4625-BD73-4EA406CD785D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7D48F379-89EC-483A-A073-BDE6150FDF56}"
+      DTS:ObjectName="DESKTOP-T5TEPEA\AKDENIZ.BANK">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-T5TEPEA\AKDENIZ;Initial Catalog=BANK;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{7D48F379-89EC-483A-A073-BDE6150FDF56}DESKTOP-T5TEPEA\AKDENIZ.BANK;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FBBCE2BB-4F0B-422D-95E1-B1653BBA5F44}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\BANKA_SUBE"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="BANKA_SUBE"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[BANKA_SUBE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\BANKA_SUBE.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].Columns[SubeID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].ExternalColumns[SubeID]"
+                      lineageId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].Columns[SubeID]"
+                      name="SubeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].Columns[BankaID]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].ExternalColumns[BankaID]"
+                      lineageId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].Columns[BankaID]"
+                      name="BankaID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].Columns[IlceID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].ExternalColumns[IlceID]"
+                      lineageId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].Columns[IlceID]"
+                      name="IlceID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].ExternalColumns[SubeID]"
+                      dataType="i2"
+                      name="SubeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].ExternalColumns[BankaID]"
+                      dataType="ui1"
+                      name="BankaID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].ExternalColumns[IlceID]"
+                      dataType="i2"
+                      name="IlceID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Error Output].Columns[SubeID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Error Output].Columns[SubeID]"
+                      name="SubeID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Error Output].Columns[BankaID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Error Output].Columns[BankaID]"
+                      name="BankaID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Error Output].Columns[IlceID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Error Output].Columns[IlceID]"
+                      name="IlceID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\BOLGE"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="BOLGE"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[BOLGE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\BOLGE.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output].Columns[BolgeID]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output].ExternalColumns[BolgeID]"
+                      lineageId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output].Columns[BolgeID]"
+                      name="BolgeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output].Columns[BolgeAd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output].ExternalColumns[BolgeAd]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output].Columns[BolgeAd]"
+                      name="BolgeAd"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output].ExternalColumns[BolgeID]"
+                      dataType="ui1"
+                      name="BolgeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output].ExternalColumns[BolgeAd]"
+                      dataType="wstr"
+                      length="20"
+                      name="BolgeAd" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Error Output].Columns[BolgeID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Error Output].Columns[BolgeID]"
+                      name="BolgeID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Error Output].Columns[BolgeAd]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Error Output].Columns[BolgeAd]"
+                      name="BolgeAd" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\HESAP"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="HESAP"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[HESAP]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\HESAP.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[HesapNo]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].ExternalColumns[HesapNo]"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[HesapNo]"
+                      name="HesapNo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[SubeID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].ExternalColumns[SubeID]"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[SubeID]"
+                      name="SubeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].ExternalColumns[DovizID]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[DovizID]"
+                      name="DovizID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].ExternalColumns[HesapNo]"
+                      dataType="i8"
+                      name="HesapNo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      dataType="i2"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].ExternalColumns[SubeID]"
+                      dataType="i2"
+                      name="SubeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].ExternalColumns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      name="DovizID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].ExternalColumns[AcilmaTarihi]"
+                      dataType="dbTimeStamp"
+                      name="AcilmaTarihi" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].ExternalColumns[KapatmaTarihi]"
+                      dataType="dbTimeStamp"
+                      name="KapatmaTarihi" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].ExternalColumns[Meblag]"
+                      dataType="r8"
+                      name="Meblag" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output].Columns[HesapNo]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output].Columns[HesapNo]"
+                      name="HesapNo" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      name="MusteriID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output].Columns[SubeID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output].Columns[SubeID]"
+                      name="SubeID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Error Output].Columns[DovizID]"
+                      name="DovizID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\HESAP-BANKA-SUBE"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="HESAP-BANKA-SUBE"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\HESAP-BANKA-SUBE.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE.Inputs[Merge Join Left Input].Columns[SubeID]"
+                      cachedDataType="i2"
+                      cachedName="SubeID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[SubeID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE.Inputs[Merge Join Left Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[MusteriID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\HESAP-BANKA-SUBE.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE.Inputs[Merge Join Right Input].Columns[SubeID]"
+                      cachedDataType="i2"
+                      cachedName="SubeID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[SubeID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE.Inputs[Merge Join Right Input].Columns[IlceID]"
+                      cachedDataType="i2"
+                      cachedName="IlceID"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[IlceID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\HESAP-BANKA-SUBE.Outputs[Merge Join Output]"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE.Outputs[Merge Join Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE.Outputs[Merge Join Output].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\HESAP-BANKA-SUBE.Inputs[Merge Join Left Input].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE.Outputs[Merge Join Output].Columns[IlceID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE.Outputs[Merge Join Output].Columns[IlceID]"
+                      name="IlceID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\HESAP-BANKA-SUBE.Inputs[Merge Join Right Input].Columns[IlceID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="HESAP-BANKA-SUBE-ILCE"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Inputs[Merge Join Left Input].Columns[IlceID]"
+                      cachedDataType="i2"
+                      cachedName="IlceID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[IlceID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Inputs[Merge Join Left Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[MusteriID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Inputs[Merge Join Right Input].Columns[IlceID]"
+                      cachedDataType="i2"
+                      cachedName="IlceID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[IlceID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Inputs[Merge Join Right Input].Columns[SehirID]"
+                      cachedDataType="ui1"
+                      cachedName="SehirID"
+                      lineageId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[SehirID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Outputs[Merge Join Output]"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Outputs[Merge Join Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Outputs[Merge Join Output].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Inputs[Merge Join Left Input].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Outputs[Merge Join Output].Columns[SehirID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Outputs[Merge Join Output].Columns[SehirID]"
+                      name="SehirID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Inputs[Merge Join Right Input].Columns[SehirID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="HESAP-BANKA-SUBE-ILCE-SEHIR"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Inputs[Merge Join Left Input].Columns[SehirID]"
+                      cachedDataType="ui1"
+                      cachedName="SehirID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 5.Outputs[Sort Output].Columns[SehirID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Inputs[Merge Join Left Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\Sort 5.Outputs[Sort Output].Columns[MusteriID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Inputs[Merge Join Right Input].Columns[SehirID]"
+                      cachedDataType="ui1"
+                      cachedName="SehirID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 4.Outputs[Sort Output].Columns[SehirID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Inputs[Merge Join Right Input].Columns[SehirAd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SehirAd"
+                      lineageId="Package\Data Flow Task\Sort 4.Outputs[Sort Output].Columns[SehirAd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Inputs[Merge Join Right Input].Columns[BolgeID]"
+                      cachedDataType="ui1"
+                      cachedName="BolgeID"
+                      lineageId="Package\Data Flow Task\Sort 4.Outputs[Sort Output].Columns[BolgeID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output]"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Inputs[Merge Join Left Input].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output].Columns[SehirAd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output].Columns[SehirAd]"
+                      name="SehirAd">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Inputs[Merge Join Right Input].Columns[SehirAd]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output].Columns[BolgeID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output].Columns[BolgeID]"
+                      name="BolgeID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Inputs[Merge Join Right Input].Columns[BolgeID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Inputs[Merge Join Left Input].Columns[BolgeID]"
+                      cachedDataType="ui1"
+                      cachedName="BolgeID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 6.Outputs[Sort Output].Columns[BolgeID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Inputs[Merge Join Left Input].Columns[SehirAd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SehirAd"
+                      lineageId="Package\Data Flow Task\Sort 6.Outputs[Sort Output].Columns[SehirAd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Inputs[Merge Join Left Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\Sort 6.Outputs[Sort Output].Columns[MusteriID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Inputs[Merge Join Right Input].Columns[BolgeID]"
+                      cachedDataType="ui1"
+                      cachedName="BolgeID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 7.Outputs[Sort Output].Columns[BolgeID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Inputs[Merge Join Right Input].Columns[BolgeAd]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="BolgeAd"
+                      lineageId="Package\Data Flow Task\Sort 7.Outputs[Sort Output].Columns[BolgeAd]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Outputs[Merge Join Output]"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Outputs[Merge Join Output].Columns[SehirAd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Outputs[Merge Join Output].Columns[SehirAd]"
+                      name="SehirAd">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Inputs[Merge Join Left Input].Columns[SehirAd]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Outputs[Merge Join Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Outputs[Merge Join Output].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Inputs[Merge Join Left Input].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Outputs[Merge Join Output].Columns[BolgeAd]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Outputs[Merge Join Output].Columns[BolgeAd]"
+                      name="BolgeAd">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Inputs[Merge Join Right Input].Columns[BolgeAd]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\ILCE"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ILCE"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ILCE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\ILCE.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].Columns[IlceID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].ExternalColumns[IlceID]"
+                      lineageId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].Columns[IlceID]"
+                      name="IlceID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].Columns[IlceAd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].ExternalColumns[IlceAd]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].Columns[IlceAd]"
+                      name="IlceAd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].Columns[SehirID]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].ExternalColumns[SehirID]"
+                      lineageId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].Columns[SehirID]"
+                      name="SehirID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].ExternalColumns[IlceID]"
+                      dataType="i2"
+                      name="IlceID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].ExternalColumns[IlceAd]"
+                      dataType="wstr"
+                      length="50"
+                      name="IlceAd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].ExternalColumns[SehirID]"
+                      dataType="ui1"
+                      name="SehirID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Error Output].Columns[IlceID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Error Output].Columns[IlceID]"
+                      name="IlceID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Error Output].Columns[IlceAd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Error Output].Columns[IlceAd]"
+                      name="IlceAd" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Error Output].Columns[SehirID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Error Output].Columns[SehirID]"
+                      name="SehirID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="MUSTERI_SEHIR_BOLGE"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[MUSTERI_SEHIR_BOLGE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Inputs[OLE DB Destination Input].Columns[SehirAd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SehirAd"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Inputs[OLE DB Destination Input].ExternalColumns[SehirAd]"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Outputs[Merge Join Output].Columns[SehirAd]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Inputs[OLE DB Destination Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Inputs[OLE DB Destination Input].ExternalColumns[MusteriID]"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Outputs[Merge Join Output].Columns[MusteriID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Inputs[OLE DB Destination Input].Columns[BolgeAd]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="BolgeAd"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Inputs[OLE DB Destination Input].ExternalColumns[BolgeAd]"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Outputs[Merge Join Output].Columns[BolgeAd]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Inputs[OLE DB Destination Input].ExternalColumns[SehirAd]"
+                      dataType="wstr"
+                      length="50"
+                      name="SehirAd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Inputs[OLE DB Destination Input].ExternalColumns[MusteriID]"
+                      dataType="i2"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Inputs[OLE DB Destination Input].ExternalColumns[BolgeAd]"
+                      dataType="wstr"
+                      length="20"
+                      name="BolgeAd" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\SEHIR"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SEHIR"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SEHIR]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\SEHIR.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].Columns[SehirID]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].ExternalColumns[SehirID]"
+                      lineageId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].Columns[SehirID]"
+                      name="SehirID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].Columns[SehirAd]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].ExternalColumns[SehirAd]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].Columns[SehirAd]"
+                      name="SehirAd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].Columns[BolgeID]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].ExternalColumns[BolgeID]"
+                      lineageId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].Columns[BolgeID]"
+                      name="BolgeID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].ExternalColumns[SehirID]"
+                      dataType="ui1"
+                      name="SehirID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].ExternalColumns[SehirAd]"
+                      dataType="wstr"
+                      length="50"
+                      name="SehirAd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].ExternalColumns[BolgeID]"
+                      dataType="ui1"
+                      name="BolgeID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Error Output].Columns[SehirID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Error Output].Columns[SehirID]"
+                      name="SehirID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Error Output].Columns[SehirAd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Error Output].Columns[SehirAd]"
+                      name="SehirAd" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Error Output].Columns[BolgeID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Error Output].Columns[BolgeID]"
+                      name="BolgeID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[HesapNo]"
+                      cachedDataType="i8"
+                      cachedName="HesapNo"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[HesapNo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[MusteriID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[SubeID]"
+                      cachedDataType="i2"
+                      cachedName="SubeID"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[SubeID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      lineageId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[DovizID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[HesapNo]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[HesapNo]"
+                      name="HesapNo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[HesapNo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[SubeID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[SubeID]"
+                      name="SubeID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[SubeID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[DovizID]"
+                      name="DovizID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output].Columns[DovizID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[SubeID]"
+                      cachedDataType="i2"
+                      cachedName="SubeID"
+                      lineageId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].Columns[SubeID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[BankaID]"
+                      cachedDataType="ui1"
+                      cachedName="BankaID"
+                      lineageId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].Columns[BankaID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[IlceID]"
+                      cachedDataType="i2"
+                      cachedName="IlceID"
+                      lineageId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].Columns[IlceID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[SubeID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[SubeID]"
+                      name="SubeID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].Columns[SubeID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[BankaID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[BankaID]"
+                      name="BankaID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].Columns[BankaID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[IlceID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[IlceID]"
+                      name="IlceID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output].Columns[IlceID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 2"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 2.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 2.Inputs[Sort Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE.Outputs[Merge Join Output].Columns[MusteriID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 2.Inputs[Sort Input].Columns[IlceID]"
+                      cachedDataType="i2"
+                      cachedName="IlceID"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE.Outputs[Merge Join Output].Columns[IlceID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 2.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\HESAP-BANKA-SUBE.Outputs[Merge Join Output].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[IlceID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[IlceID]"
+                      name="IlceID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\HESAP-BANKA-SUBE.Outputs[Merge Join Output].Columns[IlceID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 3"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 3"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 3.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 3.Inputs[Sort Input].Columns[IlceID]"
+                      cachedDataType="i2"
+                      cachedName="IlceID"
+                      lineageId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].Columns[IlceID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 3.Inputs[Sort Input].Columns[IlceAd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="IlceAd"
+                      lineageId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].Columns[IlceAd]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 3.Inputs[Sort Input].Columns[SehirID]"
+                      cachedDataType="ui1"
+                      cachedName="SehirID"
+                      lineageId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].Columns[SehirID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 3.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[IlceID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[IlceID]"
+                      name="IlceID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].Columns[IlceID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[IlceAd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[IlceAd]"
+                      name="IlceAd">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].Columns[IlceAd]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[SehirID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[SehirID]"
+                      name="SehirID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output].Columns[SehirID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 4"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 4"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 4.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 4.Inputs[Sort Input].Columns[SehirID]"
+                      cachedDataType="ui1"
+                      cachedName="SehirID"
+                      lineageId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].Columns[SehirID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 4.Inputs[Sort Input].Columns[SehirAd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SehirAd"
+                      lineageId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].Columns[SehirAd]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 4.Inputs[Sort Input].Columns[BolgeID]"
+                      cachedDataType="ui1"
+                      cachedName="BolgeID"
+                      lineageId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].Columns[BolgeID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 4.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 4.Outputs[Sort Output].Columns[SehirID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\Sort 4.Outputs[Sort Output].Columns[SehirID]"
+                      name="SehirID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].Columns[SehirID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 4.Outputs[Sort Output].Columns[SehirAd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Sort 4.Outputs[Sort Output].Columns[SehirAd]"
+                      name="SehirAd">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].Columns[SehirAd]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 4.Outputs[Sort Output].Columns[BolgeID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\Sort 4.Outputs[Sort Output].Columns[BolgeID]"
+                      name="BolgeID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output].Columns[BolgeID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 5"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 5"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 5.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 5.Inputs[Sort Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Outputs[Merge Join Output].Columns[MusteriID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 5.Inputs[Sort Input].Columns[SehirID]"
+                      cachedDataType="ui1"
+                      cachedName="SehirID"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Outputs[Merge Join Output].Columns[SehirID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 5.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 5.Outputs[Sort Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort 5.Outputs[Sort Output].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Outputs[Merge Join Output].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 5.Outputs[Sort Output].Columns[SehirID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\Sort 5.Outputs[Sort Output].Columns[SehirID]"
+                      name="SehirID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Outputs[Merge Join Output].Columns[SehirID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 6"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 6"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 6.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 6.Inputs[Sort Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output].Columns[MusteriID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 6.Inputs[Sort Input].Columns[SehirAd]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SehirAd"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output].Columns[SehirAd]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 6.Inputs[Sort Input].Columns[BolgeID]"
+                      cachedDataType="ui1"
+                      cachedName="BolgeID"
+                      lineageId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output].Columns[BolgeID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 6.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 6.Outputs[Sort Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort 6.Outputs[Sort Output].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 6.Outputs[Sort Output].Columns[SehirAd]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Sort 6.Outputs[Sort Output].Columns[SehirAd]"
+                      name="SehirAd">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output].Columns[SehirAd]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 6.Outputs[Sort Output].Columns[BolgeID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\Sort 6.Outputs[Sort Output].Columns[BolgeID]"
+                      name="BolgeID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output].Columns[BolgeID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 7"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 7"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 7.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 7.Inputs[Sort Input].Columns[BolgeID]"
+                      cachedDataType="ui1"
+                      cachedName="BolgeID"
+                      lineageId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output].Columns[BolgeID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 7.Inputs[Sort Input].Columns[BolgeAd]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="BolgeAd"
+                      lineageId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output].Columns[BolgeAd]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 7.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 7.Outputs[Sort Output].Columns[BolgeID]"
+                      dataType="ui1"
+                      lineageId="Package\Data Flow Task\Sort 7.Outputs[Sort Output].Columns[BolgeID]"
+                      name="BolgeID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output].Columns[BolgeID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 7.Outputs[Sort Output].Columns[BolgeAd]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Data Flow Task\Sort 7.Outputs[Sort Output].Columns[BolgeAd]"
+                      name="BolgeAd">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output].Columns[BolgeAd]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Merge Join Output3]"
+              endId="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE.Inputs[OLE DB Destination Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Merge Join Output2]"
+              endId="Package\Data Flow Task\Sort 6.Inputs[Sort Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Merge Join Output1]"
+              endId="Package\Data Flow Task\Sort 5.Inputs[Sort Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Merge Join Output]"
+              endId="Package\Data Flow Task\Sort 2.Inputs[Sort Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\HESAP-BANKA-SUBE.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output4]"
+              endId="Package\Data Flow Task\Sort 7.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\BOLGE.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output3]"
+              endId="Package\Data Flow Task\Sort 4.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\SEHIR.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\BANKA_SUBE.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output2]"
+              endId="Package\Data Flow Task\Sort 3.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\ILCE.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\HESAP.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output2]"
+              endId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 3.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output3]"
+              endId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 2.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output7]"
+              endId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 6.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output1]"
+              endId="Package\Data Flow Task\HESAP-BANKA-SUBE.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output4]"
+              endId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 4.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output5]"
+              endId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 5.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output]"
+              endId="Package\Data Flow Task\HESAP-BANKA-SUBE.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output6]"
+              endId="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 7.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="116,42"
+          Id="Package\Data Flow Task\HESAP"
+          TopLeft="18,14" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Data Flow Task\BANKA_SUBE"
+          TopLeft="161,16" />
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Data Flow Task\Sort"
+          TopLeft="21,84" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Sort 1"
+          TopLeft="181,83" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="73.25,56">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="236,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Data Flow Task\HESAP-BANKA-SUBE"
+          TopLeft="54,161" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="235,125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-55,36"
+              Start="0,0"
+              End="-55,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.4205607476636" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.4205607476636"
+                    Point2="0,21.4205607476636"
+                    Point3="-4,21.4205607476636" />
+                  <mssgle:LineSegment
+                    End="-51,21.4205607476636" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-51,21.4205607476636"
+                    Point2="-55,21.4205607476636"
+                    Point3="-55,25.4205607476636" />
+                  <mssgle:LineSegment
+                    End="-55,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output1]"
+          TopLeft="70.5,126">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48.5,35"
+              Start="0,0"
+              End="48.5,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.8255451713396" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.8255451713396"
+                    Point2="0,20.8255451713396"
+                    Point3="4,20.8255451713396" />
+                  <mssgle:LineSegment
+                    End="44.5,20.8255451713396" />
+                  <mssgle:CubicBezierSegment
+                    Point1="44.5,20.8255451713396"
+                    Point2="48.5,20.8255451713396"
+                    Point3="48.5,24.8255451713396" />
+                  <mssgle:LineSegment
+                    End="48.5,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Sort 2"
+          TopLeft="94,237" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="148.75,203">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="103,42"
+          Id="Package\Data Flow Task\ILCE"
+          TopLeft="353,17" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Sort 3"
+          TopLeft="352,82" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output2]"
+          TopLeft="405.25,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="219,42"
+          Id="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE"
+          TopLeft="302,241" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output2]"
+          TopLeft="408.75,124">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,117"
+              Start="0,0"
+              End="0,109.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,109.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output3]"
+          TopLeft="202,260">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="100,0"
+              Start="0,0"
+              End="92.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="92.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Data Flow Task\SEHIR"
+          TopLeft="620,12" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Sort 4"
+          TopLeft="619,77" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output3]"
+          TopLeft="674.75,54">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Sort 5"
+          TopLeft="356,318" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output1]"
+          TopLeft="410.75,283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="256,42"
+          Id="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR"
+          TopLeft="545,320" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output4]"
+          TopLeft="673,119">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,201"
+              Start="0,0"
+              End="0,193.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,193.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output5]"
+          TopLeft="464,340">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="81,0"
+              Start="0,0"
+              End="73.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="73.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Sort 6"
+          TopLeft="620,401" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output2]"
+          TopLeft="673.5,362">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="117,42"
+          Id="Package\Data Flow Task\BOLGE"
+          TopLeft="922,9" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Sort 7"
+          TopLeft="924,75" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output4]"
+          TopLeft="979.25,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="298,42"
+          Id="Package\Data Flow Task\HESAP-BANKA-SUBE-ILCE-SEHIR-BOLGE"
+          TopLeft="834,401" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output6]"
+          TopLeft="980.5,117">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,284"
+              Start="0,0"
+              End="0,276.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,276.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output7]"
+          TopLeft="728,422">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106,0"
+              Start="0,0"
+              End="98.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="98.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE"
+          TopLeft="883,498" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output3]"
+          TopLeft="986,443">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,15.75,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\HESAP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\BANKA_SUBE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\ILCE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\SEHIR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\BOLGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\MUSTERI_SEHIR_BOLGE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

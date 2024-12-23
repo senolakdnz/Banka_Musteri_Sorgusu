@@ -1,0 +1,1858 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/23/2024 2:35:11 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-T5TEPEA"
+  DTS:CreatorName="DESKTOP-T5TEPEA\senol"
+  DTS:DTSID="{6DFCD4AF-FDA4-44F7-AA88-A77DFEBDA000}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1055"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{C3CBE352-5D52-4B25-9A22-7466FDF04D2E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{79B512E5-24BF-45AB-A467-CBA7E9AF72AA}"
+      DTS:ObjectName="DESKTOP-T5TEPEA\AKDENIZ.BANK">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-T5TEPEA\AKDENIZ;Initial Catalog=BANK;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{79B512E5-24BF-45AB-A467-CBA7E9AF72AA}DESKTOP-T5TEPEA\AKDENIZ.BANK;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{66EE0C7C-216B-462E-8358-ED36C651B834}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\DOVIZ-TUR"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DOVIZ-TUR"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DOVIZ_TUR]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DOVIZ-TUR.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].ExternalColumns[DovizID]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[DovizID]"
+                      name="DovizID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[Kur]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].ExternalColumns[Kur]"
+                      lineageId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[Kur]"
+                      name="Kur"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].ExternalColumns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      name="DovizID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].ExternalColumns[Isim]"
+                      dataType="wstr"
+                      length="20"
+                      name="Isim" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].ExternalColumns[Kur]"
+                      dataType="r8"
+                      name="Kur" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[DovizID]"
+                      name="DovizID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[Kur]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[Kur]"
+                      name="Kur" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="MUSTERI-MUSTERI-VARLIK"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Left Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[MusteriID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[MusteriID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input].Columns[Deger]"
+                      cachedDataType="r8"
+                      cachedName="Deger"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[Deger]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[DovizID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Left Input].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[Deger]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[Deger]"
+                      name="Deger">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input].Columns[Deger]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[DovizID]"
+                      name="DovizID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input].Columns[DovizID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[DovizID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[MusteriID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input].Columns[Deger]"
+                      cachedDataType="r8"
+                      cachedName="Deger"
+                      lineageId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[Deger]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Right Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[DovizID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Right Input].Columns[Kur]"
+                      cachedDataType="r8"
+                      cachedName="Kur"
+                      lineageId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[Kur]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Deger]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Deger]"
+                      name="Deger">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input].Columns[Deger]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[DovizID]"
+                      name="DovizID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input].Columns[DovizID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Kur]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Kur]"
+                      name="Kur">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Right Input].Columns[Kur]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\MUSTERI-TOPLAM-VARLIK"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="MUSTERI-TOPLAM-VARLIK"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\MUSTERI-TOPLAM-VARLIK.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-TOPLAM-VARLIK.Inputs[Aggregate Input 1].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[MusteriID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\MUSTERI-TOPLAM-VARLIK.Inputs[Aggregate Input 1].Columns[Varlik-TRY]"
+                      cachedDataType="r8"
+                      cachedName="Varlik-TRY"
+                      lineageId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Outputs[Derived Column Output].Columns[Varlik-TRY]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\MUSTERI-TOPLAM-VARLIK.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-TOPLAM-VARLIK.Outputs[Aggregate Output 1].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\MUSTERI-TOPLAM-VARLIK.Outputs[Aggregate Output 1].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[MusteriID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERI-TOPLAM-VARLIK.Outputs[Aggregate Output 1].Columns[Varlik-TRY]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\MUSTERI-TOPLAM-VARLIK.Outputs[Aggregate Output 1].Columns[Varlik-TRY]"
+                      name="Varlik-TRY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\NULL-VARLIK-KONTROL.Outputs[Derived Column Output].Columns[Varlik-TRY]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\MUSTERİ"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="MUSTERİ"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[MUSTERI]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\MUSTERİ.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      lineageId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      dataType="i2"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].ExternalColumns[TCKimlikNo]"
+                      dataType="i8"
+                      name="TCKimlikNo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].ExternalColumns[KategoriID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="1"
+                      name="KategoriID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].ExternalColumns[IlkAd]"
+                      dataType="wstr"
+                      length="50"
+                      name="IlkAd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].ExternalColumns[IkinciAd]"
+                      dataType="wstr"
+                      length="50"
+                      name="IkinciAd" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].ExternalColumns[Soyad]"
+                      dataType="wstr"
+                      length="50"
+                      name="Soyad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].ExternalColumns[DTarihi]"
+                      dataType="dbTimeStamp"
+                      name="DTarihi" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].ExternalColumns[Cinsiyet]"
+                      dataType="bool"
+                      name="Cinsiyet" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].ExternalColumns[MedeniHal]"
+                      dataType="bool"
+                      name="MedeniHal" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].ExternalColumns[YasGrupID]"
+                      dataType="ui1"
+                      name="YasGrupID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      name="MusteriID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\MUSTERİ-VARLIK"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="MUSTERİ-VARLIK"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[MUSTERI_VARLIK]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1254</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\MUSTERİ-VARLIK.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T5TEPEA\AKDENIZ.BANK]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      lineageId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].Columns[Deger]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[Deger]"
+                      lineageId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].Columns[Deger]"
+                      name="Deger"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[DovizID]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].Columns[DovizID]"
+                      name="DovizID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[VarlikID]"
+                      dataType="i4"
+                      name="VarlikID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[MusteriID]"
+                      dataType="i2"
+                      name="MusteriID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[TurID]"
+                      dataType="ui1"
+                      name="TurID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[Deger]"
+                      dataType="r8"
+                      name="Deger" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      name="DovizID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].ExternalColumns[EdinmeTarihi]"
+                      dataType="dbTimeStamp"
+                      name="EdinmeTarihi" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Error Output].Columns[MusteriID]"
+                      name="MusteriID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Error Output].Columns[Deger]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Error Output].Columns[Deger]"
+                      name="Deger" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Error Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Error Output].Columns[DovizID]"
+                      name="DovizID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\NULL-VARLIK-KONTROL"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="NULL-VARLIK-KONTROL"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Inputs[Derived Column Input].Columns[Deger]"
+                      cachedDataType="r8"
+                      cachedName="Deger"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Deger]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Inputs[Derived Column Input].Columns[Kur]"
+                      cachedDataType="r8"
+                      cachedName="Kur"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Kur]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Outputs[Derived Column Output].Columns[Varlik-TRY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Outputs[Derived Column Output].Columns[Varlik-TRY]"
+                      name="Varlik-TRY"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[REPLACENULL](#{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Deger]} * #{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output].Columns[Kur]},0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACENULL(Deger * Kur,0)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].Columns[MusteriID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      lineageId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].Columns[MusteriID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[Deger]"
+                      cachedDataType="r8"
+                      cachedName="Deger"
+                      lineageId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].Columns[Deger]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      lineageId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].Columns[DovizID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[MusteriID]"
+                      name="MusteriID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[Deger]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[Deger]"
+                      name="Deger">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].Columns[Deger]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[DovizID]"
+                      name="DovizID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output].Columns[DovizID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 2"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 2.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 2.Inputs[Sort Input].Columns[MusteriID]"
+                      cachedDataType="i2"
+                      cachedName="MusteriID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[MusteriID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 2.Inputs[Sort Input].Columns[Deger]"
+                      cachedDataType="r8"
+                      cachedName="Deger"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[Deger]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 2.Inputs[Sort Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      lineageId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[DovizID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 2.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[MusteriID]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[MusteriID]"
+                      name="MusteriID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[MusteriID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[Deger]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[Deger]"
+                      name="Deger">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[Deger]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Sort 2.Outputs[Sort Output].Columns[DovizID]"
+                      name="DovizID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output].Columns[DovizID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 3"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 3"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 3.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 3.Inputs[Sort Input].Columns[DovizID]"
+                      cachedCodepage="1254"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DovizID"
+                      lineageId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[DovizID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 3.Inputs[Sort Input].Columns[Kur]"
+                      cachedDataType="r8"
+                      cachedName="Kur"
+                      lineageId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[Kur]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 3.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[DovizID]"
+                      codePage="1254"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[DovizID]"
+                      name="DovizID"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[DovizID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[Kur]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Sort 3.Outputs[Sort Output].Columns[Kur]"
+                      name="Kur">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output].Columns[Kur]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Aggregate Output 1]"
+              endId="Package\Data Flow Task\Multicast.Inputs[Multicast Input 1]"
+              name="Aggregate Output 1"
+              startId="Package\Data Flow Task\MUSTERI-TOPLAM-VARLIK.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\MUSTERI-TOPLAM-VARLIK.Inputs[Aggregate Input 1]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Merge Join Output]"
+              endId="Package\Data Flow Task\Sort 2.Inputs[Sort Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Merge Join Output1]"
+              endId="Package\Data Flow Task\NULL-VARLIK-KONTROL.Inputs[Derived Column Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\MUSTERİ.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\MUSTERİ-VARLIK.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output2]"
+              endId="Package\Data Flow Task\Sort 3.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\DOVIZ-TUR.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output]"
+              endId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output1]"
+              endId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output2]"
+              endId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 3.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output3]"
+              endId="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 2.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Sort 2"
+          TopLeft="261,302" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Data Flow Task\NULL-VARLIK-KONTROL"
+          TopLeft="524,381" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Data Flow Task\MUSTERI-TOPLAM-VARLIK"
+          TopLeft="520,475" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK"
+          TopLeft="198,225" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Data Flow Task\Multicast"
+          TopLeft="843,480" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Sort 3"
+          TopLeft="570,137" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Sort 1"
+          TopLeft="351,139" />
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Data Flow Task\MUSTERİ"
+          TopLeft="138,56" />
+        <NodeLayout
+          Size="288,42"
+          Id="Package\Data Flow Task\MUSTERI-MUSTERI-VARLIK-DOVIZ-TUR"
+          TopLeft="480,300" />
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Data Flow Task\Sort"
+          TopLeft="154,136" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Data Flow Task\MUSTERİ-VARLIK"
+          TopLeft="326,59" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Data Flow Task\DOVIZ-TUR"
+          TopLeft="556,60" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="312.5,267">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="628.75,423">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Aggregate Output 1]"
+          TopLeft="740,498.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="103,0"
+              Start="0,0"
+              End="95.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="95.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="39.75,5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output3]"
+          TopLeft="369,322">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111,0"
+              Start="0,0"
+              End="103.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="103.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output2]"
+          TopLeft="624,179">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,121"
+              Start="0,0"
+              End="0,113.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,113.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output1]"
+          TopLeft="203.5,178">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="70.5,47"
+              Start="0,0"
+              End="70.5,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="66.5,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="66.5,28"
+                    Point2="70.5,28"
+                    Point3="70.5,32" />
+                  <mssgle:LineSegment
+                    End="70.5,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="405,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-59,44"
+              Start="0,0"
+              End="-59,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.2127659574468" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2127659574468"
+                    Point2="0,26.2127659574468"
+                    Point3="-4,26.2127659574468" />
+                  <mssgle:LineSegment
+                    End="-55,26.2127659574468" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-55,26.2127659574468"
+                    Point2="-59,26.2127659574468"
+                    Point3="-59,30.2127659574468" />
+                  <mssgle:LineSegment
+                    End="-59,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output2]"
+          TopLeft="624.75,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="408.25,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="203,98">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output1]"
+          TopLeft="625.75,342">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\MUSTERİ-VARLIK">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\MUSTERİ">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DOVIZ-TUR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
